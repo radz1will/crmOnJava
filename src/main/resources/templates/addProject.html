@@ -1,0 +1,24 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<header th:insert="blocks/header :: header"></header>
+<body>
+<form action="/addProject" method="post">
+    <input type="textarea" name="name" placeholder="Введите название нового проекта"/>
+    <input type="textarea" name="project_manager_id" placeholder="Введите id менеджера проекта"/>
+    <input type="textarea" name="team_lead_id" placeholder="Введите id руководителя группы"/>
+    <button type="submit">Добавить</button>
+</form>
+
+<!--<div th:each="el : ${projects}" class="alert alert-info mt-2">-->
+<!--    <h3 th:text="${el.name}"/>-->
+<!--</div>-->
+</body>
+</html>

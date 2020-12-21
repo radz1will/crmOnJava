@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<header th:insert="blocks/header :: header"></header>
+<body>
+<br>
+<a href="/addTask">Добавить задачу</a>
+<!--<p th:text="'Hello, ' + ${title} + '!'" />-->
+
+
+<div th:each="el : ${tasks}" class="d-flex text-muted pt-3">
+    <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+
+    <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+        <div class="d-flex justify-content-between">
+            <strong class="text-gray-dark"><h4 th:text="${el.name}" /></strong>
+            <a href="#"><h6 th:text="${el.project.name}" /></a>
+        </div>
+        <span class="d-block">Менеджер проекта: <h7 th:text="${el.project.projectManager.name}" /></span>
+        <span class="d-block">Руководитель группы: <h9 th:text="${el.project.teamLead.name}" /></span>
+        <a th:href="'/tasks/' + ${el.id}">Детально</a>
+    </div>
+</div>
+
+</div>
+
+
+</body>
+</html>
